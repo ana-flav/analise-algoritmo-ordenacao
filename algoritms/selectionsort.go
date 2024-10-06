@@ -1,11 +1,10 @@
-
-package main
+package algorithms
 
 import (
-    "time"
+	"time"
 )
 
-func selectionoSort(array []int) (int, int, time.Duration) {
+func SelectionSort(array []int) (int, int, time.Duration) {
 	n := len(array)
 	comparacoes := 0
 	trocas := 0
@@ -19,14 +18,12 @@ func selectionoSort(array []int) (int, int, time.Duration) {
 			if array[j] < array[smallest] {
 				smallest = j
 			}
-		array[i], array[smallest] = array[smallest], array[i]
-		trocas++
+			array[i], array[smallest] = array[smallest], array[i]
+			trocas++
 		}
 	}
 
 	duration := time.Since(start)
 
-	
 	return comparacoes, trocas, duration
 }
-

@@ -1,11 +1,10 @@
-
-package main
+package algorithms
 
 import (
-    "time"
+	"time"
 )
 
-func bubbleSort(array []int) (int, int, time.Duration) {
+func BubbleSort(array []int) (int, int, time.Duration) {
 	n := len(array)
 	comparacoes := 0
 	trocas := 0
@@ -24,7 +23,5 @@ func bubbleSort(array []int) (int, int, time.Duration) {
 
 	duration := time.Since(start)
 
-	
 	return comparacoes, trocas, duration
 }
-

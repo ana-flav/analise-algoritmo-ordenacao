@@ -6,11 +6,11 @@ import (
 	"time"
 )
 
-type ListsSize struct {
-	List1000      ListVariations
-	List10000     ListVariations
-	List50000     ListVariations
-	List100000    ListVariations
+type Lists struct {
+	List1000   ListVariations
+	List10000  ListVariations
+	List50000  ListVariations
+	List100000 ListVariations
 }
 
 type ListVariations struct {
@@ -19,9 +19,10 @@ type ListVariations struct {
 	ReverseList []int
 }
 
-func NewListsNumbers() *ListsSize {
 
-	return &ListsSize{
+func NewListsNumbers() *Lists {
+
+	return &Lists{
 		List1000:   createListVariations(1000),
 		List10000:  createListVariations(10000),
 		List50000:  createListVariations(50000),

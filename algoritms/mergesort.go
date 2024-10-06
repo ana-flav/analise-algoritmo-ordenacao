@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func merge(arr1 []int, arr2 []int) []int {
 	var i, j, k int = 0, 0, 0
@@ -40,7 +40,7 @@ func merge(arr1 []int, arr2 []int) []int {
 	return arr3
 }
 
-func MergeSort(arr []int, b int) []int {
+func mergeSort(arr []int, b int) []int {
 	e := len(arr)
 	m := e / 2
 
@@ -48,7 +48,11 @@ func MergeSort(arr []int, b int) []int {
 		return arr
 	}
 
-	resultArr1 := MergeSort(arr[0:m], 0)
-	resultArr2 := MergeSort(arr[m:e], m)
+	resultArr1 := mergeSort(arr[0:m], 0)
+	resultArr2 := mergeSort(arr[m:e], m)
 	return merge(resultArr1, resultArr2)
+}
+
+func MergeSort(arr []int) []int {
+	return mergeSort(arr, 0)
 }
