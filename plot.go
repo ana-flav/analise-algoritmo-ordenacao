@@ -33,7 +33,7 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}) {
 }
 
 func plotLineGraph(filename string, xLabel string, yLabel string, points plotter.XYs) {
-	f, err := os.Create("out.png")
+	f, err := os.Create("graphs/" + filename)
 	if err != nil {
 		log.Fatal(err)
 	}
