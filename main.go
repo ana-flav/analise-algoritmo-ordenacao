@@ -7,8 +7,6 @@ import (
 	"time"
 )
 
-var sortingAlgorithms = []a.SortAlg{a.BubbleSort, a.HeapSort, a.SelectionSort}
-
 func executeAlgorithm(a a.SortAlg, list []int) (int, int, time.Duration) {
 	return a(list)
 }
@@ -22,10 +20,10 @@ func runAlgorithms(l *Lists) {
 			listaAny := listas.Field(j).Addr().Interface()
 			lista := listaAny.(*[]int)
 
-			for k := 0; k < len(sortingAlgorithms); k++ {
-				comparacoes, trocas, duracao := executeAlgorithm(sortingAlgorithms[k], *lista)
-				fmt.Printf("Tipo de lista: %v - %v, Operação: %v -- \nComparações: %v\nTrocas: %v\nDuração: %v\n\n",
-					listNames[j], listSizes[i], algNames[k], comparacoes, trocas, duracao,
+			for k, v := range mapAlgorithms {
+				comparacoes, trocas, duracao := executeAlgorithm(v, *lista)
+				fmt.Printf("Tipo de lista: %v - %v, Algoritmo: %v -- \nComparações: %v\nTrocas: %v\nDuração: %v\n\n",
+					listNames[j], listSizes[i], k, comparacoes, trocas, duracao,
 				)
 			}
 		}

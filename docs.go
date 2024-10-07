@@ -1,20 +1,25 @@
 package main
 
-var algNames = map[int]string{
-	0: "Bubble Sort",
-	1: "Heap Sort",
-	2: "Selection Sort",
+import a "main/algoritms"
+
+var listNames = []string{
+	"Ordem aleatória",
+	"Ordem crescente",
+	"Ordem decrescente",
 }
 
-var listNames = map[int]string{
-	0: "Ordem aleatória",
-	1: "Ordem crescente",
-	2: "Ordem decrescente",
+var listSizes = []string{
+	"1000 itens",
+	"10000 itens",
+	"50000 itens",
+	"100000 itens",
 }
 
-var listSizes = map[int]string{
-	0: "1000 itens",
-	1: "10000 itens",
-	2: "50000 itens",
-	3: "100000 itens",
+var mapAlgorithms = map[string]a.SortAlg{
+	"Bubble Sort":    a.BubbleSort,
+	"Selection Sort": a.SelectionSort,
+	"Insertion Sort": a.InsertionSort,
+	"Merge Sort":     a.MergeSort,
+	"Quick Sort":     a.QuickSort,
+	"Heap Sort":      a.HeapSort,
 }

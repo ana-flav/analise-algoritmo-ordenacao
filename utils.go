@@ -19,7 +19,6 @@ type ListVariations struct {
 	ReverseList []int
 }
 
-
 func NewListsNumbers() *Lists {
 
 	return &Lists{
@@ -51,4 +50,13 @@ func createListVariations(size int) ListVariations {
 		SortedList:  listaOrdenada,
 		ReverseList: listaInversa,
 	}
+}
+
+func ValidateSorting(arr []int) bool {
+	for i := 0; i < len(arr)-1; i++ {
+		if arr[i] > arr[i+1] {
+			return false
+		}
+	}
+	return true
 }
