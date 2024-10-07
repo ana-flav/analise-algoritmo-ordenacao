@@ -1,6 +1,7 @@
 package algorithms
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -43,6 +44,12 @@ func HeapSort(arr []int) (int, int, time.Duration) {
 		trocas++
 
 		heapify(arr, i, 0, &comparacoes, &trocas)
+	}
+
+	if ValidateSorting(arr) {
+		fmt.Println("CERTO")
+	} else {
+		fmt.Println("ERRADO")
 	}
 
 	duration := time.Since(start)

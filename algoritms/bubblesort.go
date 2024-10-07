@@ -1,6 +1,7 @@
 package algorithms
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -19,6 +20,12 @@ func BubbleSort(array []int) (int, int, time.Duration) {
 				trocas++
 			}
 		}
+	}
+
+	if ValidateSorting(array) {
+		fmt.Println("CERTO")
+	} else {
+		fmt.Println("ERRADO")
 	}
 
 	duration := time.Since(start)

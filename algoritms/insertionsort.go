@@ -1,6 +1,9 @@
 package algorithms
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 func InsertionSort(arr []int) (int, int, time.Duration) {
 	c := 0
@@ -23,6 +26,12 @@ func InsertionSort(arr []int) (int, int, time.Duration) {
 		}
 		arr[j+1] = item
 		t++
+	}
+
+	if ValidateSorting(arr) {
+		fmt.Println("CERTO")
+	} else {
+		fmt.Println("ERRADO")
 	}
 	return c, t, time.Since(start)
 }

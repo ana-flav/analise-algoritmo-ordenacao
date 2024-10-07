@@ -9,17 +9,17 @@ var listNames = []string{
 }
 
 var listSizes = []string{
-	"1000 itens",
-	"10000 itens",
-	"50000 itens",
-	"100000 itens",
+	"1000",
+	"10000",
+	"50000",
+	"100000",
 }
 
 var mapAlgorithms = map[string]a.SortAlg{
-	"Bubble Sort":    a.BubbleSort,
-	"Selection Sort": a.SelectionSort,
-	"Insertion Sort": a.InsertionSort,
+	// "Bubble Sort":    a.BubbleSort,
+	// "Selection Sort": a.SelectionSort,
+	// "Insertion Sort": a.InsertionSort,
 	"Merge Sort":     a.MergeSort,
-	"Quick Sort":     a.QuickSort,
-	"Heap Sort":      a.HeapSort,
+	// "Quick Sort":     a.QuickSort,
+	// "Heap Sort":      a.HeapSort,
 }

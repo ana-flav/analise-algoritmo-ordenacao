@@ -1,6 +1,9 @@
 package algorithms
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 var comparacoes *int = new(int)
 var trocas *int = new(int)
@@ -70,6 +73,11 @@ func mergeSort(arr []int) []int {
 
 func MergeSort(arr []int) (int, int, time.Duration) {
 	start := time.Now()
-	mergeSort(arr)
+	res := mergeSort(arr)
+	if ValidateSorting(res) {
+		fmt.Println("CERTO")
+	} else {
+		fmt.Println("ERRADO")
+	}
 	return *comparacoes, *trocas, time.Since(start)
 }

@@ -1,6 +1,9 @@
 package algorithms
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 var comp *int = new(int)
 var tr *int = new(int)
@@ -36,5 +39,10 @@ func QuickSort(arr []int) (int, int, time.Duration) {
 	start := time.Now()
 	var arrPtr = &arr
 	quickSort(arrPtr, 0, len(arr)-1)
+	if ValidateSorting(*arrPtr) {
+		fmt.Println("CERTO")
+	} else {
+		fmt.Println("ERRADO")
+	}
 	return *comp, *tr, time.Since(start)
 }
