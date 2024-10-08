@@ -12,6 +12,8 @@ func SelectionSort(array []int) (int, int, time.Duration) {
 
 	start := time.Now()
 
+	// {5, 6, 9, 3, 1, 10, 8, 2, 7, 4}
+
 	for i := 0; i < n-1; i++ {
 		smallest := i
 		for j := i + 1; j < n; j++ {
@@ -19,9 +21,9 @@ func SelectionSort(array []int) (int, int, time.Duration) {
 			if array[j] < array[smallest] {
 				smallest = j
 			}
-			array[i], array[smallest] = array[smallest], array[i]
-			trocas++
 		}
+		array[i], array[smallest] = array[smallest], array[i]
+		trocas++
 	}
 
 	if ValidateSorting(array) {

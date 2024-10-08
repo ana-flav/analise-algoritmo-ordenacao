@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"image/color"
 	"log"
 	"os"
@@ -21,6 +22,7 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}) {
 			log.Fatal(err)
 		}
 
+		fmt.Println("plotando", listSizes[i])
 		t := data["Merge Sort"][listSizes[i]]["Ordem decrescente"]["trocas"]
 		v := t.(int)
 		vFloat := float64(v)

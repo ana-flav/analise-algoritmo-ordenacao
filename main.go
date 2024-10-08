@@ -36,16 +36,21 @@ func runAlgorithms(l *Lists) map[string]map[string]map[string]map[string]interfa
 		listas := v.Field(i)
 		for j := 0; j < listas.NumField(); j++ {
 			listaAny := listas.Field(j).Addr().Interface()
+			fmt.Println(listas.Field(j).Cap())
 			lista := listaAny.(*[]int)
+			var listaCopia = make([]int, len(*lista))
+			copy(listaCopia, *lista)
 
 			for k, v := range mapAlgorithms {
-				c, t, d := executeAlgorithm(v, *lista)
+				fmt.Println("---", k, "---")
+				c, t, d := executeAlgorithm(v, listaCopia)
 				resultMap[k][listSizes[i]][listNames[j]]["comparacoes"] = c
 				resultMap[k][listSizes[i]][listNames[j]]["trocas"] = t
-				resultMap[k][listSizes[i]][listNames[j]]["tempo"] = d
-				fmt.Printf("Tipo de lista: %v - %v, Algoritmo: %v -- \nComparações: %v\nTrocas: %v\nDuração: %v\n\n",
-					listNames[j], listSizes[i], k, c, t, d,
-				)
+				duration := float64(d) / float64(time.Millisecond)
+				resultMap[k][listSizes[i]][listNames[j]]["tempo"] = duration
+				// fmt.Printf("Tipo de lista: %v - %v, Algoritmo: %v -- \nComparações: %v\nTrocas: %v\nDuração: %v\n\n",
+				// 	listNames[j], listSizes[i], k, c, t, duration,
+				// )
 			}
 		}
 	}
@@ -56,5 +61,13 @@ func runAlgorithms(l *Lists) map[string]map[string]map[string]map[string]interfa
 func main() {
 	lists := NewListsNumbers()
 	res := runAlgorithms(lists)
+	// resJson, err := json.Marshal(res)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// fmt.Println(string(resJson))
+	// var lista = []int{5, 6, 9, 3, 1, 10, 8, 2, 7, 4}
+	// a.SelectionSort(lista)
 	plotGraphs(res)
 }

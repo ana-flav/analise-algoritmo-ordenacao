@@ -16,7 +16,7 @@ func InsertionSort(arr []int) (int, int, time.Duration) {
 		j := i - 1
 		for {
 			c++
-			if j <= 0 || arr[j] < item {
+			if j < 0 || arr[j] < item {
 				break
 			}
 
