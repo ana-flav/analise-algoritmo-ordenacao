@@ -1,32 +1,31 @@
 package algorithms
 
 import (
-	"fmt"
 	"time"
 )
 
-var comp *int = new(int)
-var tr *int = new(int)
+var comp int = 0
+var tr int = 0
 
 func partition(arr *[]int, s int, e int) int {
 	p := (*arr)[e]
 	i := s - 1
 
 	for j := s; j < e; j++ {
-		*comp++
+		comp++
 		if (*arr)[j] <= p {
 			i++
 			(*arr)[i], (*arr)[j] = (*arr)[j], (*arr)[i]
-			*tr++
+			tr++
 		}
 	}
 	(*arr)[i+1], (*arr)[e] = (*arr)[e], (*arr)[i+1]
-	*tr++
+	tr++
 	return i + 1
 }
 
 func quickSort(arr *[]int, s int, e int) {
-	*comp++
+	comp++
 	if s <= e {
 		p := partition(arr, s, e)
 
@@ -39,10 +38,6 @@ func QuickSort(arr []int) (int, int, time.Duration) {
 	start := time.Now()
 	var arrPtr = &arr
 	quickSort(arrPtr, 0, len(arr)-1)
-	if ValidateSorting(*arrPtr) {
-		fmt.Println("CERTO")
-	} else {
-		fmt.Println("ERRADO")
-	}
-	return *comp, *tr, time.Since(start)
+
+	return comp, tr, time.Since(start)
 }

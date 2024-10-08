@@ -20,6 +20,7 @@ type ListVariations struct {
 }
 
 func NewListsNumbers() *Lists {
+	rand.Seed(time.Now().UnixNano())
 
 	return &Lists{
 		List1000:   createListVariations(1000),
@@ -30,7 +31,6 @@ func NewListsNumbers() *Lists {
 }
 
 func createListVariations(size int) ListVariations {
-	rand.Seed(time.Now().UnixNano())
 
 	listaAleatoria := make([]int, size)
 	for i := range listaAleatoria {
@@ -51,5 +51,3 @@ func createListVariations(size int) ListVariations {
 		ReverseList: listaInversa,
 	}
 }
-
-

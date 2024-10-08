@@ -16,7 +16,7 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}) {
 	// Plotando para Selection Sort
 	XYs := plotter.XYs{}
 
-	for i := range listSizes {
+	for i := 0; i < 4; i++ {
 		s, err := strconv.Atoi(listSizes[i])
 		if err != nil {
 			log.Fatal(err)

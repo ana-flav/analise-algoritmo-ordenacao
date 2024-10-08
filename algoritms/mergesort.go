@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-var comparacoes *int = new(int)
-var trocas *int = new(int)
+var comparacoes int = 0
+var trocas int = 0
 
 func merge(arr1 []int, arr2 []int) []int {
 	var i, j, k int = 0, 0, 0
@@ -14,43 +14,43 @@ func merge(arr1 []int, arr2 []int) []int {
 	arr3 := make([]int, 0, lenArr3)
 
 	for {
-		*comparacoes++
+		comparacoes++
 		if i > len(arr1) && j > len(arr2) {
 			break
 		}
 
-		*comparacoes++
+		comparacoes++
 		if arr1[i] < arr2[j] {
 			arr3 = append(arr3, arr1[i])
-			*trocas++
+			trocas++
 			k++
 			i++
 		} else if arr2[j] < arr1[i] {
-			*comparacoes++
+			comparacoes++
+			trocas++
 			arr3 = append(arr3, arr2[j])
-			*trocas++
 			k++
 			j++
 		} else {
+			trocas = trocas + 2
 			arr3 = append(arr3, arr1[i])
 			arr3 = append(arr3, arr2[j])
-			*trocas = *trocas + 2
 			k = k + 2
 			i++
 			j++
 		}
 
-		*comparacoes++
+		comparacoes++
 		if i >= len(arr1) {
 			arr3 = append(arr3, arr2[j:]...)
-			*trocas = len(arr2[i:])
+			trocas = trocas + len(arr2[i:])
 			break
 		}
 
-		*comparacoes++
+		comparacoes++
 		if j >= len(arr2) {
 			arr3 = append(arr3, arr1[i:]...)
-			*trocas = len(arr1[i:])
+			trocas = trocas + len(arr1[i:])
 			break
 		}
 	}
@@ -73,11 +73,15 @@ func mergeSort(arr []int) []int {
 
 func MergeSort(arr []int) (int, int, time.Duration) {
 	start := time.Now()
-	res := mergeSort(arr)
-	if ValidateSorting(res) {
-		fmt.Println("CERTO")
+
+	if ValidateSorting(arr) {
+		fmt.Println("array ja ta ordenada")
 	} else {
-		fmt.Println("ERRADO")
+		fmt.Println("array ta desordenada certo")
 	}
-	return *comparacoes, *trocas, time.Since(start)
+
+	mergeSort(arr)
+
+	fmt.Println("trocas: ", trocas)
+	return comparacoes, trocas, time.Since(start)
 }
