@@ -1,0 +1,422 @@
+{
+    "Bubble Sort": {
+        "1000": {
+            "Ordem aleatória": {
+                "comparacoes": 499500,
+                "tempo": 0.910614,
+                "trocas": 257296
+            },
+            "Ordem crescente": {
+                "comparacoes": 499500,
+                "tempo": 0.525913,
+                "trocas": 0
+            },
+            "Ordem decrescente": {
+                "comparacoes": 499500,
+                "tempo": 1.040796,
+                "trocas": 499441
+            }
+        },
+        "10000": {
+            "Ordem aleatória": {
+                "comparacoes": 49995000,
+                "tempo": 40.609761,
+                "trocas": 25135017
+            },
+            "Ordem crescente": {
+                "comparacoes": 49995000,
+                "tempo": 27.058922,
+                "trocas": 0
+            },
+            "Ordem decrescente": {
+                "comparacoes": 49995000,
+                "tempo": 54.498026,
+                "trocas": 49994490
+            }
+        },
+        "50000": {
+            "Ordem aleatória": {
+                "comparacoes": 1249975000,
+                "tempo": 2436.95702,
+                "trocas": 625783763
+            },
+            "Ordem crescente": {
+                "comparacoes": 1249975000,
+                "tempo": 653.267794,
+                "trocas": 0
+            },
+            "Ordem decrescente": {
+                "comparacoes": 1249975000,
+                "tempo": 1357.990945,
+                "trocas": 1249972547
+            }
+        },
+        "100000": {
+            "Ordem aleatória": {
+                "comparacoes": 4999950000,
+                "tempo": 10428.206922,
+                "trocas": 2505938853
+            },
+            "Ordem crescente": {
+                "comparacoes": 4999950000,
+                "tempo": 2669.847772,
+                "trocas": 0
+            },
+            "Ordem decrescente": {
+                "comparacoes": 4999950000,
+                "tempo": 5489.963492,
+                "trocas": 4999945076
+            }
+        }
+    },
+    "Heap Sort": {
+        "1000": {
+            "Ordem aleatória": {
+                "comparacoes": 11631,
+                "tempo": 0.121456,
+                "trocas": 9066
+            },
+            "Ordem crescente": {
+                "comparacoes": 12951,
+                "tempo": 0.111747,
+                "trocas": 9699
+            },
+            "Ordem decrescente": {
+                "comparacoes": 10349,
+                "tempo": 0.086581,
+                "trocas": 8313
+            }
+        },
+        "10000": {
+            "Ordem aleatória": {
+                "comparacoes": 166405,
+                "tempo": 0.902705,
+                "trocas": 124241
+            },
+            "Ordem crescente": {
+                "comparacoes": 179784,
+                "tempo": 1.051968,
+                "trocas": 131542
+            },
+            "Ordem decrescente": {
+                "comparacoes": 153576,
+                "tempo": 0.583823,
+                "trocas": 116680
+            }
+        },
+        "50000": {
+            "Ordem aleatória": {
+                "comparacoes": 1006777,
+                "tempo": 4.801943,
+                "trocas": 737814
+            },
+            "Ordem crescente": {
+                "comparacoes": 1075476,
+                "tempo": 3.06633,
+                "trocas": 774201
+            },
+            "Ordem decrescente": {
+                "comparacoes": 939574,
+                "tempo": 3.293135,
+                "trocas": 698831
+            }
+        },
+        "100000": {
+            "Ordem aleatória": {
+                "comparacoes": 2163160,
+                "tempo": 10.54013,
+                "trocas": 1574982
+            },
+            "Ordem crescente": {
+                "comparacoes": 2301447,
+                "tempo": 6.593246,
+                "trocas": 1649936
+            },
+            "Ordem decrescente": {
+                "comparacoes": 2025106,
+                "tempo": 6.645741,
+                "trocas": 1497579
+            }
+        }
+    },
+    "Insertion Sort": {
+        "1000": {
+            "Ordem aleatória": {
+                "comparacoes": 259355,
+                "tempo": 0.120222,
+                "trocas": 258355
+            },
+            "Ordem crescente": {
+                "comparacoes": 2059,
+                "tempo": 0.001226,
+                "trocas": 1059
+            },
+            "Ordem decrescente": {
+                "comparacoes": 501500,
+                "tempo": 0.22919,
+                "trocas": 500500
+            }
+        },
+        "10000": {
+            "Ordem aleatória": {
+                "comparacoes": 25155527,
+                "tempo": 11.076696,
+                "trocas": 25145527
+            },
+            "Ordem crescente": {
+                "comparacoes": 20510,
+                "tempo": 0.011423,
+                "trocas": 10510
+            },
+            "Ordem decrescente": {
+                "comparacoes": 50015000,
+                "tempo": 22.414287,
+                "trocas": 50005000
+            }
+        },
+        "50000": {
+            "Ordem aleatória": {
+                "comparacoes": 625886216,
+                "tempo": 276.480611,
+                "trocas": 625836216
+            },
+            "Ordem crescente": {
+                "comparacoes": 102453,
+                "tempo": 0.053538,
+                "trocas": 52453
+            },
+            "Ordem decrescente": {
+                "comparacoes": 1250075000,
+                "tempo": 555.150143,
+                "trocas": 1250025000
+            }
+        },
+        "100000": {
+            "Ordem aleatória": {
+                "comparacoes": 2506143777,
+                "tempo": 1128.791178,
+                "trocas": 2506043777
+            },
+            "Ordem crescente": {
+                "comparacoes": 204924,
+                "tempo": 0.116149,
+                "trocas": 104924
+            },
+            "Ordem decrescente": {
+                "comparacoes": 5000150000,
+                "tempo": 2224.295861,
+                "trocas": 5000050000
+            }
+        }
+    },
+    "Merge Sort": {
+        "1000": {
+            "Ordem aleatória": {
+                "comparacoes": 38357,
+                "tempo": 0.113263,
+                "trocas": 9372
+            },
+            "Ordem crescente": {
+                "comparacoes": 57086,
+                "tempo": 0.065698,
+                "trocas": 14471
+            },
+            "Ordem decrescente": {
+                "comparacoes": 82220,
+                "tempo": 0.057111,
+                "trocas": 24448
+            }
+        },
+        "10000": {
+            "Ordem aleatória": {
+                "comparacoes": 617475,
+                "tempo": 1.084654,
+                "trocas": 153124
+            },
+            "Ordem crescente": {
+                "comparacoes": 865908,
+                "tempo": 0.503406,
+                "trocas": 222625
+            },
+            "Ordem decrescente": {
+                "comparacoes": 1210148,
+                "tempo": 0.544993,
+                "trocas": 356313
+            }
+        },
+        "50000": {
+            "Ordem aleatória": {
+                "comparacoes": 4407200,
+                "tempo": 11.945227,
+                "trocas": 1114610
+            },
+            "Ordem crescente": {
+                "comparacoes": 5887249,
+                "tempo": 6.276276,
+                "trocas": 1518928
+            },
+            "Ordem decrescente": {
+                "comparacoes": 7892953,
+                "tempo": 5.028877,
+                "trocas": 2304097
+            }
+        },
+        "100000": {
+            "Ordem aleatória": {
+                "comparacoes": 14733246,
+                "tempo": 16.769658,
+                "trocas": 3920108
+            },
+            "Ordem crescente": {
+                "comparacoes": 17893343,
+                "tempo": 7.207619,
+                "trocas": 4778796
+            },
+            "Ordem decrescente": {
+                "comparacoes": 22154636,
+                "tempo": 9.05519,
+                "trocas": 6449207
+            }
+        }
+    },
+    "Quick Sort": {
+        "1000": {
+            "Ordem aleatória": {
+                "comparacoes": 14342,
+                "tempo": 0.090749,
+                "trocas": 7878
+            },
+            "Ordem crescente": {
+                "comparacoes": 515843,
+                "tempo": 2.052356,
+                "trocas": 508378
+            },
+            "Ordem decrescente": {
+                "comparacoes": 989714,
+                "tempo": 1.434951,
+                "trocas": 745540
+            }
+        },
+        "10000": {
+            "Ordem aleatória": {
+                "comparacoes": 1176831,
+                "tempo": 0.801688,
+                "trocas": 834843
+            },
+            "Ordem crescente": {
+                "comparacoes": 51191832,
+                "tempo": 86.525116,
+                "trocas": 50839843
+            },
+            "Ordem decrescente": {
+                "comparacoes": 98582688,
+                "tempo": 75.736482,
+                "trocas": 74568518
+            }
+        },
+        "50000": {
+            "Ordem aleatória": {
+                "comparacoes": 99570072,
+                "tempo": 2.909838,
+                "trocas": 75070100
+            },
+            "Ordem crescente": {
+                "comparacoes": 1349645073,
+                "tempo": 2165.574978,
+                "trocas": 1325095100
+            },
+            "Ordem decrescente": {
+                "comparacoes": 2540158419,
+                "tempo": 1948.618835,
+                "trocas": 1921054553
+            }
+        },
+        "100000": {
+            "Ordem aleatória": {
+                "comparacoes": 2542361346,
+                "tempo": 6.213414,
+                "trocas": 1922096612
+            },
+            "Ordem crescente": {
+                "comparacoes": 7542511347,
+                "tempo": 8672.013054,
+                "trocas": 6922146612
+            },
+            "Ordem decrescente": {
+                "comparacoes": 12310851532,
+                "tempo": 7823.220364,
+                "trocas": 9309105847
+            }
+        }
+    },
+    "Selection Sort": {
+        "1000": {
+            "Ordem aleatória": {
+                "comparacoes": 499500,
+                "tempo": 0.325086,
+                "trocas": 999
+            },
+            "Ordem crescente": {
+                "comparacoes": 499500,
+                "tempo": 0.281024,
+                "trocas": 999
+            },
+            "Ordem decrescente": {
+                "comparacoes": 499500,
+                "tempo": 0.333053,
+                "trocas": 999
+            }
+        },
+        "10000": {
+            "Ordem aleatória": {
+                "comparacoes": 49995000,
+                "tempo": 28.181341,
+                "trocas": 9999
+            },
+            "Ordem crescente": {
+                "comparacoes": 49995000,
+                "tempo": 27.843584,
+                "trocas": 9999
+            },
+            "Ordem decrescente": {
+                "comparacoes": 49995000,
+                "tempo": 32.16633,
+                "trocas": 9999
+            }
+        },
+        "50000": {
+            "Ordem aleatória": {
+                "comparacoes": 1249975000,
+                "tempo": 690.611683,
+                "trocas": 49999
+            },
+            "Ordem crescente": {
+                "comparacoes": 1249975000,
+                "tempo": 683.414561,
+                "trocas": 49999
+            },
+            "Ordem decrescente": {
+                "comparacoes": 1249975000,
+                "tempo": 894.137579,
+                "trocas": 49999
+            }
+        },
+        "100000": {
+            "Ordem aleatória": {
+                "comparacoes": 4999950000,
+                "tempo": 2762.648569,
+                "trocas": 99999
+            },
+            "Ordem crescente": {
+                "comparacoes": 4999950000,
+                "tempo": 2754.405506,
+                "trocas": 99999
+            },
+            "Ordem decrescente": {
+                "comparacoes": 4999950000,
+                "tempo": 3531.41857,
+                "trocas": 99999
+            }
+        }
+    }
+}

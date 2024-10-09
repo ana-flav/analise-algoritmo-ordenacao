@@ -1,36 +1,37 @@
-package main
+package algorithms
 
 import (
-	"fmt"
-	"math"
+	"time"
 )
+
+var comparacoes int = 0
+var trocas int = 0
 
 func merge(arr1 []int, arr2 []int) []int {
 	var i, j, k int = 0, 0, 0
 	lenArr3 := len(arr1) + len(arr2)
 	arr3 := make([]int, 0, lenArr3)
 
-	fmt.Printf("arrays : %v, %v, arr3: %v\n", arr1, arr2, lenArr3)
 	for {
-		println("recomeca")
+		comparacoes++
 		if i > len(arr1) && j > len(arr2) {
-			println("break")
 			break
 		}
 
-		println("oi")
+		comparacoes++
 		if arr1[i] < arr2[j] {
-			println("aqui 1")
 			arr3 = append(arr3, arr1[i])
+			trocas++
 			k++
 			i++
 		} else if arr2[j] < arr1[i] {
-			println("aqui 2")
+			comparacoes++
+			trocas++
 			arr3 = append(arr3, arr2[j])
 			k++
 			j++
 		} else {
-			println("aqui 3")
+			trocas = trocas + 2
 			arr3 = append(arr3, arr1[i])
 			arr3 = append(arr3, arr2[j])
 			k = k + 2
@@ -38,13 +39,17 @@ func merge(arr1 []int, arr2 []int) []int {
 			j++
 		}
 
+		comparacoes++
 		if i >= len(arr1) {
 			arr3 = append(arr3, arr2[j:]...)
+			trocas = trocas + len(arr2[i:])
 			break
 		}
 
+		comparacoes++
 		if j >= len(arr2) {
 			arr3 = append(arr3, arr1[i:]...)
+			trocas = trocas + len(arr1[i:])
 			break
 		}
 	}
@@ -52,15 +57,23 @@ func merge(arr1 []int, arr2 []int) []int {
 	return arr3
 }
 
-func MergeSort(arr []int, b int) []int {
+func mergeSort(arr []int) []int {
 	e := len(arr)
-	m := int(math.Floor(float64(e / 2)))
+	m := e / 2
 
 	if len(arr) == 1 {
 		return arr
 	}
 
-	resultArr1 := MergeSort(arr[0:m], 0)
-	resultArr2 := MergeSort(arr[m:e], m)
+	resultArr1 := mergeSort(arr[0:m])
+	resultArr2 := mergeSort(arr[m:e])
 	return merge(resultArr1, resultArr2)
+}
+
+func MergeSort(arr []int) (int, int, time.Duration) {
+	start := time.Now()
+
+	mergeSort(arr)
+
+	return comparacoes, trocas, time.Since(start)
 }
