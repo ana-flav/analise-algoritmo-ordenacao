@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	a "main/algoritms"
 	"reflect"
 	"time"
@@ -58,24 +60,18 @@ func main() {
 
 	lists := NewListsNumbers()
 	res := runAlgorithms(lists)
-	// resJson, err := json.Marshal(res)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	resJson, err := json.Marshal(res)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	// fmt.Println(string(resJson))
+	fmt.Println(string(resJson))
 	plotGraphs(res, "Ordem aleatória", "tempo", "Qtd. de Trocas", "trocas-a")
-	// fmt.Println("2")
-	// plotGraphs(res, "Ordem crescente", "trocas", "Qtd. de Trocas", "trocas-c")
-	// fmt.Println("3")
-	// plotGraphs(res, "Ordem decrescente", "trocas", "Qtd. de Trocas", "trocas-d")
-	// fmt.Println("4")
-	// plotGraphs(res, "Ordem aleatória", "comparacoes", "Qtd. de Comparacoes", "comp-a")
-	// fmt.Println("5")
-	// plotGraphs(res, "Ordem crescente", "comparacoes", "Qtd. de Comparacoes", "comp-c")
-	// fmt.Println("6")
-	// plotGraphs(res, "Ordem decrescente", "comparacoes", "Qtd. de Comparacoes", "comp-d")
-	// fmt.Println("7")
+	plotGraphs(res, "Ordem crescente", "trocas", "Qtd. de Trocas", "trocas-c")
+	plotGraphs(res, "Ordem decrescente", "trocas", "Qtd. de Trocas", "trocas-d")
+	plotGraphs(res, "Ordem aleatória", "comparacoes", "Qtd. de Comparacoes", "comp-a")
+	plotGraphs(res, "Ordem crescente", "comparacoes", "Qtd. de Comparacoes", "comp-c")
+	plotGraphs(res, "Ordem decrescente", "comparacoes", "Qtd. de Comparacoes", "comp-d")
 	plotGraphs(res, "Ordem decrescente", "tempo", "Tempo de Execução", "tempo")
-	
+
 }
