@@ -59,7 +59,6 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, di
 	for k, v := range mapAlgorithms {
 		XYs := plotter.XYs{}
 		v = v
-		fmt.Printf("-- %v --", k)
 		for i := 0; i < 4; i++ {
 			s, err := strconv.Atoi(listSizes[i])
 			if err != nil {
@@ -69,7 +68,6 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, di
 			t := data[k][listSizes[i]][dist][variable]
 			value := t.(int)
 			sFloat := float64(s)
-			fmt.Printf("%v itens: %v trocas\n", listSizes[i], t)
 			aux := plotter.XY{X: sFloat, Y: float64(value)}
 			XYs = append(XYs, aux)
 		}
