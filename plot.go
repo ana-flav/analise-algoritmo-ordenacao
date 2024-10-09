@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image/color"
 	"log"
 	"os"
@@ -16,7 +15,7 @@ func initLinesPerAlgorithm() map[string]*plotter.Line {
 	mapLines := make(map[string]*plotter.Line, 6)
 
 	mapLines["Bubble Sort"] = &plotter.Line{}
-	mapLines["Bubble Sort"].Color = color.RGBA{R: 100, G: 255, B: 100, A: 255}
+	mapLines["Bubble Sort"].Color = color.RGBA{R: 255, G: 0, B: 100, A: 255}
 	mapLines["Bubble Sort"].Dashes = []vg.Length{vg.Points(5), vg.Points(5)}
 
 	mapLines["Selection Sort"] = &plotter.Line{}
@@ -42,8 +41,8 @@ func initLinesPerAlgorithm() map[string]*plotter.Line {
 	return mapLines
 }
 
-func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, dist string, variable string, xLabel string, yLabel string) {
-	f, err := os.Create("graphs/out.png")
+func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, dist string, variable string, yLabel string, filename string) {
+	f, err := os.Create("graphs/" + filename + ".png")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -51,7 +50,7 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, di
 	// p.Y.Scale = InvertedLogScale{}
 	// p.Y.Tick.Marker = CustomLogTicks{}
 
-	p.X.Label.Text = xLabel
+	p.X.Label.Text = "Qtd. de itens"
 	p.Y.Label.Text = yLabel
 
 	mapStyles := initLinesPerAlgorithm()
@@ -82,15 +81,6 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, di
 		p.Add(line)
 		p.Legend.Add(k, line)
 	}
-
-	// sc, err := plotter.NewScatter(points)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// sc.Shape = draw.CircleGlyph{}
-	// sc.Color = color.RGBA64{R: 255, G: 125, B: 100}
-	// p.Add(sc)
 
 	wt, err := p.WriterTo(512, 512, "png")
 	if err != nil {
