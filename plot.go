@@ -23,7 +23,7 @@ func initLinesPerAlgorithm() map[string]*plotter.Line {
 	mapLines["Selection Sort"].Dashes = []vg.Length{vg.Points(2), vg.Points(2)}
 
 	mapLines["Insertion Sort"] = &plotter.Line{}
-	mapLines["Insertion Sort"].Color = color.RGBA{R: 255, G: 130, B: 55, A: 255}
+	mapLines["Insertion Sort"].Color = color.RGBA{R: 130, G: 255, B: 55, A: 255}
 	mapLines["Insertion Sort"].Dashes = []vg.Length{vg.Points(13), vg.Points(13)}
 
 	mapLines["Merge Sort"] = &plotter.Line{}
@@ -49,6 +49,8 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, di
 	p := plot.New()
 	// p.Y.Scale = InvertedLogScale{}
 	// p.Y.Tick.Marker = CustomLogTicks{}
+
+	p.Title.Text = dist
 
 	p.X.Label.Text = "Qtd. de itens"
 	p.Y.Label.Text = yLabel

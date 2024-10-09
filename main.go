@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	a "main/algoritms"
 	"reflect"
 	"time"
@@ -62,6 +63,17 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 
-	// fmt.Println(string(resJson))
-	plotGraphs(res, "Ordem decrescente", "trocas", "Qtd. de Trocas", "trocas")
+	fmt.Println("1")
+	plotGraphs(res, "Ordem aleatória", "tempo", "Qtd. de Trocas", "trocas-a")
+	// fmt.Println("2")
+	// plotGraphs(res, "Ordem crescente", "trocas", "Qtd. de Trocas", "trocas-c")
+	// fmt.Println("3")
+	// plotGraphs(res, "Ordem decrescente", "trocas", "Qtd. de Trocas", "trocas-d")
+	// fmt.Println("4")
+	// plotGraphs(res, "Ordem aleatória", "comparacoes", "Qtd. de Comparacoes", "comp-a")
+	// fmt.Println("5")
+	// plotGraphs(res, "Ordem crescente", "comparacoes", "Qtd. de Comparacoes", "comp-c")
+	// fmt.Println("6")
+	// plotGraphs(res, "Ordem decrescente", "comparacoes", "Qtd. de Comparacoes", "comp-d")
+	// fmt.Println("7")
 }
