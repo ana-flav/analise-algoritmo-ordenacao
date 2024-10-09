@@ -64,4 +64,6 @@ func main() {
 
 	// fmt.Println(string(resJson))
 	plotGraphs(res, "Ordem decrescente", "trocas", "Qtd. de Trocas", "trocas")
+	plotGraphs(res, "Ordem decrescente", "tempo", "Tempo de Execução", "tempo")
+	
 }
