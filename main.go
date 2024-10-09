@@ -63,7 +63,7 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 
-	fmt.Println("1")
+	// fmt.Println(string(resJson))
 	plotGraphs(res, "Ordem aleatória", "tempo", "Qtd. de Trocas", "trocas-a")
 	// fmt.Println("2")
 	// plotGraphs(res, "Ordem crescente", "trocas", "Qtd. de Trocas", "trocas-c")
@@ -76,4 +76,6 @@ func main() {
 	// fmt.Println("6")
 	// plotGraphs(res, "Ordem decrescente", "comparacoes", "Qtd. de Comparacoes", "comp-d")
 	// fmt.Println("7")
+	plotGraphs(res, "Ordem decrescente", "tempo", "Tempo de Execução", "tempo")
+	
 }

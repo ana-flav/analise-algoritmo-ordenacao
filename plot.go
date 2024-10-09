@@ -41,6 +41,8 @@ func initLinesPerAlgorithm() map[string]*plotter.Line {
 	return mapLines
 }
 
+
+
 func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, dist string, variable string, yLabel string, filename string) {
 	f, err := os.Create("graphs/" + filename + ".png")
 	if err != nil {
@@ -67,12 +69,17 @@ func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, di
 			}
 
 			t := data[k][listSizes[i]][dist][variable]
-			value := t.(int)
+			value := 0.0
+			switch v := t.(type) {
+				case int:
+					value = float64(v)
+				case float64:
+					value = v
+			}
 			sFloat := float64(s)
 			aux := plotter.XY{X: sFloat, Y: float64(value)}
 			XYs = append(XYs, aux)
 		}
-
 		line, err := plotter.NewLine(XYs)
 		if err != nil {
 			log.Fatal(err)
