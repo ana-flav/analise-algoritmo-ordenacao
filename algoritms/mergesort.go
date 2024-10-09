@@ -1,7 +1,6 @@
 package algorithms
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -74,14 +73,7 @@ func mergeSort(arr []int) []int {
 func MergeSort(arr []int) (int, int, time.Duration) {
 	start := time.Now()
 
-	if ValidateSorting(arr) {
-		fmt.Println("array ja ta ordenada")
-	} else {
-		fmt.Println("array ta desordenada certo")
-	}
-
 	mergeSort(arr)
 
-	fmt.Println("trocas: ", trocas)
 	return comparacoes, trocas, time.Since(start)
 }

@@ -9,55 +9,90 @@ import (
 
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
-	"gonum.org/v1/plot/vg/draw"
+	"gonum.org/v1/plot/vg"
 )
 
-func plotGraphs(data map[string]map[string]map[string]map[string]interface{}) {
-	// Plotando para Selection Sort
-	XYs := plotter.XYs{}
+func initLinesPerAlgorithm() map[string]*plotter.Line {
+	mapLines := make(map[string]*plotter.Line, 6)
 
-	for i := 0; i < 4; i++ {
-		s, err := strconv.Atoi(listSizes[i])
-		if err != nil {
-			log.Fatal(err)
-		}
+	mapLines["Bubble Sort"] = &plotter.Line{}
+	mapLines["Bubble Sort"].Color = color.RGBA{R: 100, G: 255, B: 100, A: 255}
+	mapLines["Bubble Sort"].Dashes = []vg.Length{vg.Points(5), vg.Points(5)}
 
-		fmt.Println("plotando", listSizes[i])
-		t := data["Merge Sort"][listSizes[i]]["Ordem decrescente"]["trocas"]
-		v := t.(int)
-		vFloat := float64(v)
-		sFloat := float64(s)
-		aux := plotter.XY{X: sFloat, Y: vFloat}
-		XYs = append(XYs, aux)
-	}
+	mapLines["Selection Sort"] = &plotter.Line{}
+	mapLines["Selection Sort"].Color = color.RGBA{R: 150, G: 50, B: 255, A: 255}
+	mapLines["Selection Sort"].Dashes = []vg.Length{vg.Points(2), vg.Points(2)}
 
-	plotLineGraph("out.png", "Qtd. Itens", "Qtd. Trocas", XYs)
+	mapLines["Insertion Sort"] = &plotter.Line{}
+	mapLines["Insertion Sort"].Color = color.RGBA{R: 255, G: 130, B: 55, A: 255}
+	mapLines["Insertion Sort"].Dashes = []vg.Length{vg.Points(13), vg.Points(13)}
+
+	mapLines["Merge Sort"] = &plotter.Line{}
+	mapLines["Merge Sort"].Color = color.RGBA{R: 255, G: 150, B: 170, A: 255}
+	mapLines["Merge Sort"].Dashes = []vg.Length{vg.Points(10), vg.Points(10)}
+
+	mapLines["Quick Sort"] = &plotter.Line{}
+	mapLines["Quick Sort"].Color = color.RGBA{R: 150, G: 150, B: 225, A: 255}
+	mapLines["Quick Sort"].Dashes = []vg.Length{vg.Points(15), vg.Points(15)}
+
+	mapLines["Heap Sort"] = &plotter.Line{}
+	mapLines["Heap Sort"].Color = color.RGBA{R: 50, G: 150, B: 255, A: 255}
+	mapLines["Heap Sort"].Dashes = []vg.Length{vg.Points(20), vg.Points(20)}
+
+	return mapLines
 }
 
-func plotLineGraph(filename string, xLabel string, yLabel string, points plotter.XYs) {
-	f, err := os.Create("graphs/" + filename)
+func plotGraphs(data map[string]map[string]map[string]map[string]interface{}, dist string, variable string, xLabel string, yLabel string) {
+	f, err := os.Create("graphs/out.png")
 	if err != nil {
 		log.Fatal(err)
 	}
 	p := plot.New()
+	// p.Y.Scale = InvertedLogScale{}
+	// p.Y.Tick.Marker = CustomLogTicks{}
+
 	p.X.Label.Text = xLabel
 	p.Y.Label.Text = yLabel
-	line, err := plotter.NewLine(points)
-	if err != nil {
-		log.Fatal(err)
+
+	mapStyles := initLinesPerAlgorithm()
+
+	for k, v := range mapAlgorithms {
+		XYs := plotter.XYs{}
+		v = v
+		fmt.Printf("-- %v --", k)
+		for i := 0; i < 4; i++ {
+			s, err := strconv.Atoi(listSizes[i])
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			t := data[k][listSizes[i]][dist][variable]
+			value := t.(int)
+			sFloat := float64(s)
+			fmt.Printf("%v itens: %v trocas\n", listSizes[i], t)
+			aux := plotter.XY{X: sFloat, Y: float64(value)}
+			XYs = append(XYs, aux)
+		}
+
+		line, err := plotter.NewLine(XYs)
+		if err != nil {
+			log.Fatal(err)
+		}
+		line.Color = mapStyles[k].Color
+		line.Dashes = mapStyles[k].Dashes
+
+		p.Add(line)
+		p.Legend.Add(k, line)
 	}
 
-	line.Color = color.RGBA{R: 255, A: 255}
-	p.Add(line)
+	// sc, err := plotter.NewScatter(points)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	sc, err := plotter.NewScatter(points)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	sc.Shape = draw.CircleGlyph{}
-	sc.Color = color.RGBA64{R: 255, G: 125, B: 100}
-	p.Add(sc)
+	// sc.Shape = draw.CircleGlyph{}
+	// sc.Color = color.RGBA64{R: 255, G: 125, B: 100}
+	// p.Add(sc)
 
 	wt, err := p.WriterTo(512, 512, "png")
 	if err != nil {

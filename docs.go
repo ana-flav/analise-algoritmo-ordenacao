@@ -16,10 +16,10 @@ var listSizes = map[int]string{
 }
 
 var mapAlgorithms = map[string]a.SortAlg{
-	// "Bubble Sort":    a.BubbleSort,
-	// "Selection Sort": a.SelectionSort,
-	// "Insertion Sort": a.InsertionSort,
+	"Bubble Sort":    a.BubbleSort,
+	"Selection Sort": a.SelectionSort,
+	"Insertion Sort": a.InsertionSort,
 	"Merge Sort":     a.MergeSort,
-	// "Quick Sort":     a.QuickSort,
-	// "Heap Sort":      a.HeapSort,
+	"Quick Sort":     a.QuickSort,
+	"Heap Sort":      a.HeapSort,
 }

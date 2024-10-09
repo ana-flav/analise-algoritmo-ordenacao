@@ -1,9 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"log"
 	a "main/algoritms"
 	"reflect"
 	"time"
@@ -60,11 +57,11 @@ func main() {
 
 	lists := NewListsNumbers()
 	res := runAlgorithms(lists)
-	resJson, err := json.Marshal(res)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// resJson, err := json.Marshal(res)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	fmt.Println(string(resJson))
-	plotGraphs(res)
+	// fmt.Println(string(resJson))
+	plotGraphs(res, "Ordem decrescente", "trocas", "Qtd. Itens", "Qtd. de Trocas")
 }
